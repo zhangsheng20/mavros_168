@@ -1,0 +1,28 @@
+<launch>
+	<!-- vim: ft=xml -->
+	<!-- example launch script for PX4 based FCU's -->
+
+	<!--arg name="fcu_url" default="udp://127.0.0.1:14565@127.0.0.1:14560" /-->
+	<!--arg name="gcs_url" default="/dev/microhard:57600" /-->
+        <!-- <arg name="fcu_url" default="/dev/ttyTHS1:921600" /> -->
+
+	<arg name="fcu_url" default="/dev/uav_01:115200" />
+	<arg name="gcs_url" default="udp://0.0.0.0:14535@" />
+	<arg name="system_id" default="1"/>
+	<arg name="tgt_system" default="1" />
+	<arg name="tgt_component" default="50" />
+        <arg name="ref_msg" default="rt_ref_gen/current_state"/>
+
+	<include file="$(find mavros)/launch/node.launch">
+		<arg name="blacklist_yaml" value="$(find mavros)/launch/px4_blacklist.yaml" />
+		<arg name="config_yaml" value="$(find mavros)/launch/px4_config.yaml" />
+
+		<arg name="fcu_url" value="$(arg fcu_url)" />
+		<arg name="gcs_url" value="$(arg gcs_url)" />
+		<arg name="system_id" value="$(arg system_id)"/>
+		<arg name="tgt_system" value="$(arg tgt_system)" />
+		<arg name="tgt_component" value="$(arg tgt_component)" />
+                <arg name="ref_msg" value="$(arg ref_msg)"/>
+
+	</include>
+</launch>

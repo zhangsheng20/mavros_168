@@ -1,0 +1,4 @@
+sensor_msgs/NavSatFix gps
+---
+bool success
+geometry_msgs/Point local_position

@@ -1,0 +1,3 @@
+---
+bool  found	# indicate pose found
+geometry_msgs/Pose pose

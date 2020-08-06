@@ -1,0 +1,5 @@
+std_msgs/Header header
+float32 x_offset_ratio
+float32 y_offset_ratio
+float32 height_ratio
+float32 width_ratio
